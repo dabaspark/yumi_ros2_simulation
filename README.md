@@ -2,6 +2,16 @@
 
 ROS2 package for simulating the ABB YuMi robot in RViz.
 
+
+## Demo
+https://github.com/dabaspark/yumi_ros2_simulation/blob/main/assets/demo.mp4
+
+https://user-images.githubusercontent.com/your-user-id/yumi_ros2_simulation/assets/demo.mp4
+
+![YuMi ROS2 Simulation Demo](https://github.com/dabaspark/yumi_ros2_simulation/blob/main/assets/demo.mp4)
+
+
+
 ## Description
 This package contains the URDF description and necessary configuration files for visualizing and simulating the ABB YuMi dual-arm robot in RViz. The package includes:
 - URDF/Xacro model of the YuMi robot
@@ -16,12 +26,6 @@ This package contains the URDF description and necessary configuration files for
 - robot_state_publisher
 - rviz2
 - xacro
-
-## Video Demo
-
-https://github.com/dabaspark/yumi_ros2_simulation/assets/demo.mp4
-
-[Click here to watch the demo video](https://github.com/dabaspark/yumi_ros2_simulation/assets/demo.mp4)
 
 
 
