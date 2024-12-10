@@ -17,6 +17,16 @@ This package contains the URDF description and necessary configuration files for
 - rviz2
 - xacro
 
+## Video Demo
+
+https://github.com/dabaspark/yumi_ros2_simulation/assets/demo.mp4
+
+[Click here to watch the demo video](https://github.com/dabaspark/yumi_ros2_simulation/assets/demo.mp4)
+
+
+
+
+
 ## Installation
 
 1. Create a workspace (if you don't have one):
@@ -25,8 +35,9 @@ This package contains the URDF description and necessary configuration files for
    cd ~/ros2_ws/src
    ```
 
-2. Clone this repository:
+2. Go to src and Clone this repository there:
    ```bash
+   cd ~/ros2_ws/src
    git clone https://github.com/your-username/yumi_description.git
    ```
 
@@ -36,12 +47,13 @@ This package contains the URDF description and necessary configuration files for
    sudo apt install ros-humble-joint-state-publisher-gui
    sudo apt install ros-humble-robot-state-publisher
    sudo apt install ros-humble-xacro
+   sudo apt install python3-catkin-pkg
    ```
 
 4. Build the package:
    ```bash
    cd ~/ros2_ws
-   colcon build --packages-select yumi_description
+   colcon build --symlink-install
    ```
 
 5. Source the workspace:
