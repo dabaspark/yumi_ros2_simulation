@@ -1,0 +1,32 @@
+Panels:
+  - Class: rviz_common/Displays
+    Help Height: 78
+    Name: Displays
+    Property Tree Widget:
+      Expanded:
+        - /Global Options1
+        - /Status1
+        - /RobotModel1
+        - /TF1
+      Splitter Ratio: 0.5
+    Tree Height: 549
+Visualization Manager:
+  Class: ""
+  Displays:
+    - Alpha: 0.5
+      Cell Size: 1
+      Class: rviz_default_plugins/Grid
+      Color: 160; 160; 164
+      Enabled: true
+      Name: Grid
+    - Alpha: 0.6
+      Class: rviz_default_plugins/RobotModel
+      Description Topic: /robot_description
+      Enabled: true
+      Name: RobotModel
+    - Class: rviz_default_plugins/TF
+      Enabled: true
+      Name: TF
+  Global Options:
+    Fixed Frame: world
+    Frame Rate: 30

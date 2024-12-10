@@ -1,0 +1,84 @@
+<?xml version="1.0"?>
+<robot name="yumi" xmlns:xacro="http://www.ros.org/wiki/xacro">
+  <!-- Add world link -->
+  <link name="world"/>
+
+  <!-- Import Rviz colors -->
+  <xacro:include filename="$(find yumi_description)/urdf/materials.xacro" />
+  <!-- Import utilities -->
+  <xacro:include filename="$(find yumi_description)/urdf/utilities.xacro" />
+  <!--Import the yumi macro -->
+  <xacro:include filename="$(find yumi_description)/urdf/yumi.xacro"/>
+  <!--Import the yumi servo gripper macro -->
+  <xacro:include filename="$(find yumi_description)/urdf/yumi_servo_gripper.xacro"/>
+
+  <!-- Add fixed joint between world and base_link -->
+  <joint name="world_joint" type="fixed">
+    <parent link="world"/>
+    <child link="base_link"/>
+    <origin xyz="0 0 0.1" rpy="0 0 0"/>
+  </joint>
+
+  <!-- Define base_link -->
+  <link name="base_link">
+    <visual>
+      <origin rpy="0 0 0" xyz="0 0 0"/>
+      <geometry>
+        <mesh filename="package://yumi_description/meshes/body.stl"/>
+      </geometry>
+      <material name="Light_Grey"/>
+    </visual>
+    <collision>
+      <origin rpy="0 0 0" xyz="0 0 0"/>
+      <geometry>
+        <mesh filename="package://yumi_description/meshes/coarse/body.stl"/>
+      </geometry>
+      <material name="Light_Grey"/>
+    </collision>
+  </link>
+
+  <!-- Camera Link -->
+  <link name="phoxi">
+    <collision>
+      <origin xyz="0 0 0" rpy="0 0 0"/>
+      <geometry>
+        <box size="0.05 0.05 0.05"/>
+      </geometry>
+    </collision>
+    <visual>
+      <origin xyz="0 0 0" rpy="0 0 0"/>
+      <geometry>
+        <box size="0.05 0.05 0.05"/>
+      </geometry>
+      <material name="Red"/>
+    </visual>
+    <inertial>
+      <mass value="1e-5"/>
+      <origin xyz="0 0 0" rpy="0 0 0"/>
+      <inertia ixx="1e-6" ixy="0" ixz="0" iyy="1e-6" iyz="0" izz="1e-6"/>
+    </inertial>
+  </link>
+
+  <!-- Camera Joint with correct transformation -->
+  <joint name="phoxi_joint" type="fixed">
+    <parent link="base_link"/>
+    <child link="phoxi"/>
+    <origin xyz="0.374278 -0.089685 1.043344" rpy="-1.5533 0.157080 -1.5542"/>
+  </joint>
+
+  <!--yumi-->
+  <xacro:yumi name="yumi" hardware_interface="PositionJointInterface" parent="base_link">
+    <origin xyz="0 0 0" rpy="0 0 0"/>
+  </xacro:yumi>
+
+  <!--right gripper-->
+  <xacro:yumi_servo_gripper name="gripper_r" hardware_interface="PositionJointInterface" parent="yumi_link_7_r">
+    <origin xyz="0 0 0.007" rpy="0 0 ${PI}"/>
+  </xacro:yumi_servo_gripper>
+
+  <!--left gripper-->
+  <xacro:yumi_servo_gripper name="gripper_l" hardware_interface="PositionJointInterface" parent="yumi_link_7_l">
+    <origin xyz="0 0 0.007" rpy="0 0 ${PI}"/>
+  </xacro:yumi_servo_gripper>
+
+</robot>
