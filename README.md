@@ -34,7 +34,7 @@ This package contains the URDF description and necessary configuration files for
 2. Go to src and Clone this repository there:
    ```bash
    cd ~/ros2_ws/src
-   git clone https://github.com/your-username/yumi_description.git
+   git clone https://github.com/dabaspark/yumi_ros2_simulation.git
    ```
 
 3. Install dependencies:
@@ -49,6 +49,7 @@ This package contains the URDF description and necessary configuration files for
 4. Build the package:
    ```bash
    cd ~/ros2_ws
+   source /opt/ros/humble/setup.bash 
    colcon build --symlink-install
    ```
 
